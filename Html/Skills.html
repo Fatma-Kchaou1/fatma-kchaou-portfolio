@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fatma Kchaou - Skills & Certifications" />
+  <title>Skills | Fatma Kchaou</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #00d4ff;
+      --secondary: #7b2ff7;
+      --accent: #ff006e;
+      --dark: #0a0e27;
+      --light: #f0f4f8;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+    }
+
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--primary);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 350px;
+      height: 350px;
+      background: var(--secondary);
+      top: 50%;
+      right: -100px;
+      animation-delay: 3s;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+      bottom: -100px;
+      left: 30%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 30px) scale(0.9); }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .theme-btn {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--light);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(180deg);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      min-height: 100vh;
+      padding: 140px 5% 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    .skills-header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    /* Skills Container */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .skill-category {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 2rem;
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease backwards;
+    }
+
+    .skill-category:nth-child(1) { animation-delay: 0.1s; }
+    .skill-category:nth-child(2) { animation-delay: 0.2s; }
+    .skill-category:nth-child(3) { animation-delay: 0.3s; }
+    .skill-category:nth-child(4) { animation-delay: 0.4s; }
+    .skill-category:nth-child(5) { animation-delay: 0.5s; }
+    .skill-category:nth-child(6) { animation-delay: 0.6s; }
+    .skill-category:nth-child(7) { animation-delay: 0.7s; }
+    .skill-category:nth-child(8) { animation-delay: 0.8s; }
+
+    .skill-category:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+      border-color: var(--primary);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--glass-border);
+    }
+
+    .category-header i {
+      font-size: 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .category-header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skills-list span {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--primary);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skills-list span:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+    }
+
+    /* Certifications Section */
+    .certifications-section {
+      margin-top: 5rem;
+      animation: fadeInUp 1s ease backwards;
+      animation-delay: 0.9s;
+    }
+
+    .certifications-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .certification-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certification-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .certification-card:hover::before {
+      left: 100%;
+    }
+
+    .certification-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(123, 47, 247, 0.3);
+      border-color: var(--secondary);
+    }
+
+    .certification-card i {
+      font-size: 3rem;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      display: inline-block;
+      animation: rotate 3s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .certification-card:hover i {
+      animation-play-state: paused;
+      transform: scale(1.2);
+    }
+
+    .certification-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem 5%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(240, 244, 248, 0.7);
+      margin-top: 4rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 0;
+        right: 0;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 1.5rem;
+        display: none;
+        gap: 1rem;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .skills-section {
+        padding-top: 120px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .certifications-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills-header h1 {
+        font-size: 2rem;
+      }
+
+      .skill-category {
+        padding: 1.5rem;
+      }
+
+      .category-header h2 {
+        font-size: 1.1rem;
+      }
+
+      .certification-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="home.html" class="logo">FK.</a>
+      <button class="menu-toggle" id="menuToggle">
+        <i class='bx bx-menu'></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Internships.html">Internships</a></li>
+          <li><a href="Skills.html" class="active">Skills</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Social_Life.html">Social Life</a></li>
+          <li><a href="Interests.html">Interests</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="skills-header">
+      <h1>Skills & Certifications</h1>
+    </div>
+
+    <div class="skills-container">
+      <!-- Programming Languages -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-code-curly'></i>
+          <h2>Programming Languages & Development</h2>
+        </div>
+        <div class="skills-list">
+          <span>Python</span>
+          <span>C++</span>
+          <span>DevOps</span>
+          <span>PHP</span>
+          <span>SQL</span>
+        </div>
+      </div>
+
+      <!-- Automotive Protocols -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-car'></i>
+          <h2>Automotive Protocols</h2>
+        </div>
+        <div class="skills-list">
+          <span>CAN</span>
+          <span>CAN FD</span>
+          <span>FlexRay</span>
+          <span>LIN</span>
+          <span>Ethernet</span>
+          <span>SomeIP</span>
+        </div>
+      </div>
+
+      <!-- Microsoft Technologies -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bxl-microsoft'></i>
+          <h2>Microsoft Technologies</h2>
+        </div>
+        <div class="skills-list">
+          <span>Azure</span>
+          <span>Word</span>
+          <span>Excel</span>
+        </div>
+      </div>
+
+      <!-- Frontend -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-code-alt'></i>
+          <h2>Frontend</h2>
+        </div>
+        <div class="skills-list">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>React JS</span>
+        </div>
+      </div>
+
+      <!-- Frameworks -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-grid-alt'></i>
+          <h2>Frameworks</h2>
+        </div>
+        <div class="skills-list">
+          <span>ISTQB</span>
+          <span>Autosar</span>
+          <span>ADAS</span>
+          <span>IoT</span>
+        </div>
+      </div>
+
+      <!-- PCB Design & Embedded -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-chip'></i>
+          <h2>PCB Design & Embedded Systems</h2>
+        </div>
+        <div class="skills-list">
+          <span>KiCad</span>
+          <span>Arduino</span>
+          <span>ESP32</span>
+          <span>C</span>
+        </div>
+      </div>
+
+      <!-- Operating Systems -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-desktop'></i>
+          <h2>Operating Systems</h2>
+        </div>
+        <div class="skills-list">
+          <span>Windows</span>
+          <span>Unix</span>
+          <span>Linux</span>
+        </div>
+      </div>
+
+      <!-- Methodologies -->
+      <div class="skill-category">
+        <div class="category-header">
+          <i class='bx bx-palette'></i>
+          <h2>Methodologies & Project Management</h2>
+        </div>
+        <div class="skills-list">
+          <span>Scrum</span>
+          <span>Agile</span>
+          <span>UML</span>
+          <span>Lean Six Sigma</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="certifications-section">
+      <h2>Certifications</h2>
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>Microsoft Azure Data Fundamentals (DP-900) & Microsoft Azure Security (AZ-500)</h3>
+        </div>
+
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+        </div>
+
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>AI Fundamentals (AI-900)</h3>
+        </div>
+
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>Introduction IoT</h3>
+        </div>
+
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>Microsoft Office Specialist</h3>
+        </div>
+
+        <div class="certification-card">
+          <i class='bx bx-certification'></i>
+          <h3>Leadership</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Fatma Kchaou. Designed with passion & code.</p>
+  </footer>
+
+  <script>
+    // Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('bx-menu');
+      icon.classList.toggle('bx-x');
+    });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const icon = themeToggle.querySelector('i');
+      icon.classList.toggle('bx-moon');
+      icon.classList.toggle('bx-sun');
+    });
+
+    // Close menu when clicking nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.querySelector('i').classList.remove('bx-x');
+        menuToggle.querySelector('i').classList.add('bx-menu');
+      });
+    });
+  </script>
+</body>
+</html>
