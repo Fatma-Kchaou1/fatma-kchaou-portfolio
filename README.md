@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Ce portfolio est à usage personnel. Merci de ne pas réutiliser le code sans permission.  
 =======
 # Portfolio
+=======
+# Portfolio-Fatma
+>>>>>>> b3bfb8df31ea002d983762e00f22f531a6260f15
 
 
 
@@ -18,14 +22,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.com/fatma.kchaou29/portfolio.git
+=======
+git remote add origin https://gitlab.com/fatma.kchaou29/portfolio-fatma.git
+>>>>>>> b3bfb8df31ea002d983762e00f22f531a6260f15
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 - [ ] [Set up project integrations](https://gitlab.com/fatma.kchaou29/portfolio/-/settings/integrations)
+=======
+- [ ] [Set up project integrations](https://gitlab.com/fatma.kchaou29/portfolio-fatma/-/settings/integrations)
+>>>>>>> b3bfb8df31ea002d983762e00f22f531a6260f15
 
 ## Collaborate with your team
 
@@ -94,4 +106,7 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+<<<<<<< HEAD
 >>>>>>> 0d6afdf1e72ab9039a2962da9cf5d91f3c434a4a
+=======
+>>>>>>> b3bfb8df31ea002d983762e00f22f531a6260f15

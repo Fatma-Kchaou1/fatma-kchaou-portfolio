@@ -1,11 +1,11 @@
-image: node:16
 
+image: alpine:latest
 pages:
   stage: deploy
   script:
-    - npm install
-    - npm run build
-    - cp -r build/* public/
+    - echo "Déploiement portfolio HTML/CSS/JS"
   artifacts:
     paths:
       - public
+  only:
+    - master
