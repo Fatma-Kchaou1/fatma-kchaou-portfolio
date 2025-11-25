@@ -1,10 +1,14 @@
+# The Docker image that will be used to build your app
+image: node:lts
+
 pages:
-  stage: deploy
   script:
-    - mkdir .public
-    - cp -r * .public
+    - npm ci              # Installe les dépendances
+    - npm run build       # Compile ton projet (React/Vite/Next...)
+    - mkdir public        # Crée le dossier public
+    - cp -r dist/* public/   # Copie les fichiers buildés dedans
   artifacts:
     paths:
-      - .public
-  only:
-    - master
+      - public            # Expose le dossier public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
