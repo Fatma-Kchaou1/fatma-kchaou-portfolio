@@ -1,11 +1,11 @@
-
 image: alpine:latest
+
 pages:
   stage: deploy
   script:
-    - echo "Déploiement portfolio HTML/CSS/JS"
+    - echo "Déploiement depuis la racine"
   artifacts:
     paths:
-      - public
+      - .
   only:
     - master
