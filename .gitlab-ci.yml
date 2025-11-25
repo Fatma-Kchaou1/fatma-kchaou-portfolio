@@ -3,9 +3,9 @@ image: alpine:latest
 pages:
   stage: deploy
   script:
-    - echo "Déploiement depuis la racine"
+    - echo "Déploiement Le Portfoli"
   artifacts:
     paths:
-      - .
+      - public
   only:
     - master
