@@ -1,28 +1,11 @@
-# The Docker image that will be used to build your app
-image: node:lts
-<<<<<<< HEAD
+image: node:16
 
 pages:
+  stage: deploy
   script:
-    - npm ci              # Installe les dépendances
-    - npm run build       # Compile ton projet (React/Vite/Next...)
-    - mkdir public        # Crée le dossier public
-    - cp -r dist/* public/   # Copie les fichiers buildés dedans
+    - npm install
+    - npm run build
+    - cp -r build/* public/
   artifacts:
     paths:
-      - public            # Expose le dossier public
-  rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-=======
-create-pages:
-  pages:
-    # The folder that contains the files to be exposed at the Page URL
-    publish: public
-  rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
-  # Functions that should be executed before the build script is run
-  before_script:
-    - npm ci
->>>>>>> 0d6afdf1e72ab9039a2962da9cf5d91f3c434a4a
+      - public
