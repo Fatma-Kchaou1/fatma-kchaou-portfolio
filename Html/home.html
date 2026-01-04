@@ -156,26 +156,6 @@
       width: 100%;
     }
 
-    .theme-btn {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      color: var(--light);
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .theme-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: rotate(180deg);
-    }
-
     .menu-toggle {
       display: none;
       background: none;
@@ -591,11 +571,7 @@
           <li><a href="Projects.html">Projects</a></li>
           <li><a href="Social_Life.html">Social Life</a></li>
           <li><a href="Interests.html">Interests</a></li>
-          <li>
-            <button class="theme-btn" id="themeToggle">
-              <i class='bx bx-moon'></i>
-            </button>
-          </li>
+          <li><a href="Contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -608,13 +584,9 @@
         <i class='bx bx-code-alt'></i> Available for opportunities
       </div>
       
-      <h1>Fatma Kchaou</h1>
+      <h1>Fatma KCHAOU </h1>
       
-      <p>
-        Master's student in <strong>Automotive & Aeronautical Engineering</strong> and 
-        <strong>Industrial Computer Science</strong>. Passionate about QA, embedded systems, 
-        DevOps, and cybersecurity with practical experience in Python
-      </p>
+      <p>Master's Student in <strong>Automotive & Aeronautical Engineering</strong> and <strong>Industrial Computer Science</strong>. Passionate about <strong>Testing</strong>, <strong>Quality Assurance (QA)</strong>, <strong>DevOps</strong>, <strong>Embedded Systems</strong>, and <strong>Cybersecurity</strong>. I leverage hands-on <strong>Python</strong> expertise to design and optimize robust, innovative technical solutions.</p>
 
       <div class="social-links">
         <a href="https://www.linkedin.com/in/fatmakchaou" target="_blank" aria-label="LinkedIn">
@@ -629,18 +601,18 @@
       </div>
 
       <div class="cta-buttons">
-        <a href="../../Papier/CV-FATMAKCHAOUFR.pdf" download class="btn btn-primary">
+        <a href="../Papier/CV-FATMAKCHAOUFR.pdf" download class="btn btn-primary">
           <span>Download CV FR</span>
           <i class="ri-download-line"></i>
         </a>
-        <a href="../../Papier/CV-FATMAKCHAOUENG.pdf" download class="btn btn-primary">
+        <a href="../Papier/CV-FATMAKCHAOUENG.pdf" download class="btn btn-primary">
           <span>Download CV EN</span>
           <i class="ri-download-line"></i>
         </a>
-        <button id="contactBtn" class="btn btn-outline">
+        <a href="Contact.html" class="btn btn-outline">
           <span>Contact Me</span>
           <i class="ri-mail-send-line"></i>
-        </button>
+        </a>
       </div>
     </div>
 
@@ -649,8 +621,7 @@
         <div class="image-glow"></div>
         <img src="../img/professional-portrait.png" alt="Fatma Kchaou" class="profile-img">
         
-
-                <div class="floating-card card-1">
+        <div class="floating-card card-1">
           <i class='bx bx-code-curly'></i>
           <div class="card-text">
             <h4>QA Testing</h4>
@@ -664,7 +635,6 @@
             <p>Cybersecurity </p>
           </div>
         </div>
-		
         
         <div class="floating-card card-3">
           <i class='bx bx-shield-alt-2'></i>
@@ -679,7 +649,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Fatma Kchaou. Designed with passion & code.</p>
+    <p>© 2026 Fatma Kchaou. Designed with passion & code.</p>
   </footer>
 
   <script>
@@ -694,14 +664,6 @@
       icon.classList.toggle('bx-x');
     });
 
-    // Theme Toggle (placeholder)
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-      const icon = themeToggle.querySelector('i');
-      icon.classList.toggle('bx-moon');
-      icon.classList.toggle('bx-sun');
-    });
-
     // Close menu when clicking nav links
     document.querySelectorAll('nav a').forEach(link => {
       link.addEventListener('click', () => {
@@ -709,13 +671,6 @@
         menuToggle.querySelector('i').classList.remove('bx-x');
         menuToggle.querySelector('i').classList.add('bx-menu');
       });
-    });
-
-    // Contact Button - Open Gmail directly
-    const contactBtn = document.getElementById('contactBtn');
-    contactBtn.addEventListener('click', () => {
-      // Open Gmail with your email pre-filled
-      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=fatma.kchaou29@gmail.com', '_blank');
     });
   </script>
 </body>

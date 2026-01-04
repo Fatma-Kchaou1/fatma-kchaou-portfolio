@@ -1,224 +1,554 @@
-<!-- Contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio | FATMA KCHAOU</title>
-  <link rel="stylesheet" href="../CSS/About.css">
-  <link rel="stylesheet" href="../CSS/contact.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | FATMA KCHAOU - Portfolio</title>
   <link rel="icon" href="../img/ME.png" type="image/x-icon">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="../img/ME.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../img/ME.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../img/ME.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <!-- <link rel="stylesheet" href="../bootstrap.css"> -->
-  <!-- Box icons link -->
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  
-  <!-- Remix icons link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
-  
-  <!-- Google Fonts preconnect and link -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+
   <style>
-    /* Styles spécifiques pour la page d'accueil */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 100vh;
-      padding: 0 7%;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #00d4ff;
+      --secondary: #7b2ff7;
+      --accent: #ff006e;
+      --dark: #0a0e27;
+      --light: #f0f4f8;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
       position: relative;
-      gap: 3rem;
     }
 
-    .hero-content {
-      flex: 1;
-      max-width: 1000px;
+    /* Animated Background */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
     }
 
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      position: relative;
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s infinite ease-in-out;
     }
 
-    .profile-portrait {
+    .orb-1 {
+      width: 400px;
+      height: 400px;
+      background: var(--primary);
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
       width: 350px;
       height: 350px;
-      border-radius: 20px;
-      object-fit: cover;
-      border: 5px solid var(--main-color);
-      box-shadow: 0 20px 50px rgba(19, 187, 255, 0.2);
-      transform: perspective(1000px) rotateY(-10deg);
-      transition: all 0.5s ease;
+      background: var(--secondary);
+      top: 50%;
+      right: -100px;
+      animation-delay: 3s;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent);
+      bottom: -100px;
+      left: 30%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 30px) scale(0.9); }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .theme-btn {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--light);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .theme-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: rotate(180deg);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 60px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradient 3s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: rgba(240, 244, 248, 0.7);
+    }
+
+    /* Contact Cards */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      width: 100%;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+    }
+
+    .contact-card i.card-icon {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1.5rem;
+      display: block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .contact-card h3 {
+      color: var(--light);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .contact-card p {
+      color: rgba(240, 244, 248, 0.6);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.8rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      transition: left 0.4s ease;
+    }
+
+    .email-link:hover::before {
+      left: 0;
+    }
+
+    .email-link span,
+    .email-link i {
       position: relative;
       z-index: 1;
     }
 
-    .profile-portrait:hover {
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: 0 25px 60px rgba(19, 187, 255, 0.3);
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
     }
 
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      border-radius: 30px;
-      background: linear-gradient(45deg, var(--main-color), transparent);
-      top: -20px;
-      left: -20px;
-      z-index: 0;
-      opacity: 0.3;
-      animation: pulse 8s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.3; }
-      100% { transform: scale(1.05); opacity: 0.5; }
-    }
-
-    /* Animation du texte */
-    .hero h4 {
-      font-size: 1.6rem;
-      color: var(--main-color);
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin: 1rem 0;
-      line-height: 1.2;
-      background: linear-gradient(to right, var(--main-color), #4facfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 1.5s ease;
-    }
-
-    .hero p {
+    .email-link i {
       font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-      color: var(--other-color);
-      animation: fadeInUp 1s ease;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem 5%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(240, 244, 248, 0.7);
     }
 
     /* Responsive */
-    @media (max-width: 992px) {
-      .hero h1 {
-        font-size: 3rem;
-      }
-      .profile-portrait {
-        width: 300px;
-        height: 300px;
-      }
-    }
-
     @media (max-width: 768px) {
-      .hero {
+      header {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav ul {
+        position: absolute;
+        top: calc(100% + 20px);
+        left: 0;
+        right: 0;
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
         flex-direction: column;
-        text-align: center;
-        padding-top: 100px;
+        padding: 1.5rem;
+        display: none;
+        gap: 1rem;
       }
-      .hero-content {
-        order: 2;
+
+      nav ul.active {
+        display: flex;
       }
-      .hero-image {
-        order: 1;
-        margin-bottom: 3rem;
+
+      .contact-section {
+        padding-top: 150px;
       }
-      .profile-portrait {
-        width: 250px;
-        height: 250px;
+
+      .section-header h1 {
+        font-size: 2.2rem;
       }
-      .hero-image::before {
-        width: 300px;
-        height: 300px;
+
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        padding: 2rem;
       }
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2.5rem;
+      .section-header h1 {
+        font-size: 1.9rem;
       }
-      .hero h4 {
-        font-size: 1.3rem;
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+
+      .contact-card i.card-icon {
+        font-size: 2.8rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
 
+  <!-- Header -->
   <header>
-    <a href="#" class="logo">Portfoli <span>.O</span></a>
-    <div class="bx bx-menu" id="menu-icon"></div>
-    <ul class="navlist">
-        <li><a href="../Html/home.html" >Home</a></li>
-        <li><a href="../Html/About.html">About</a></li>
-        <li><a href="../Html/Internships.html">Internships</a></li>
-        <li><a href="../Html/Skills.html">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="../Html/Social_Life.html">Social Life</a></li>
-        <li><a href="../Html/Interests.html">Interests</a></li>
-    </ul>
-</header>
-      </br>
-    </br>
-  </br>
-</br>
-      <section >
-        <h2>Contact Me </h2>
-        <div class="form-container">
-            <form class="form">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" required="">
-              </div>
-              <div class="form-group">
-                <label for="textarea">How Can We Help You?</label>
-                <textarea name="textarea" id="textarea" rows="10" cols="50" required="">          </textarea>
-              </div>
-              <button class="form-submit-btn" type="submit">Submit</button>
-            </form>
-          </div>
-      </section>
-      <script>
-        const menuIcon = document.getElementById('menu-icon');
-        const navList = document.querySelector('.navlist');
-        menuIcon.addEventListener('click', () => {
-          navList.classList.toggle('active');
-        });
+    <div class="header-content">
+      <a href="home.html" class="logo">FK.</a>
+      <button class="menu-toggle" id="menuToggle">
+        <i class='bx bx-menu'></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Internships.html">Internships</a></li>
+          <li><a href="Skills.html">Skills</a></li>
+          <li><a href="Projects.html">Projects</a></li>
+          <li><a href="Social_Life.html">Social Life</a></li>
+          <li><a href="Interests.html">Interests</a></li>
+          <li><a href="Contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="section-header">
+      <h1>Get In Touch</h1>
+      <p>I'm open to discussing new opportunities and professional inquiries</p>
+    </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-  const menuIcon = document.getElementById('menu-icon');
-  const navList = document.getElementById('navlist');
+    <div class="contact-info">
+      <div class="contact-card">
+        <i class='bx bx-envelope card-icon'></i>
+        <h3>Professional Email</h3>
+        <div style="color: rgba(240, 244, 248, 0.9); margin-bottom: 1rem; font-size: 1rem; font-weight: 500;">
+          fatma.kchaou@enetcom.u-sfax.tn
+        </div>
+        <button class="email-link" onclick="copyEmail('fatma.kchaou@enetcom.u-sfax.tn', this)">
+          <i class='bx bx-copy'></i>
+          <span>Copy Email</span>
+        </button>
+      </div>
+      
+      <div class="contact-card">
+        <i class='bx bx-mail-send card-icon'></i>
+        <h3>Personal Email</h3>
+        <div style="color: rgba(240, 244, 248, 0.9); margin-bottom: 1rem; font-size: 1rem; font-weight: 500;">
+          fatma.kchaou29@gmail.com
+        </div>
+        <button class="email-link" onclick="copyEmail('fatma.kchaou29@gmail.com', this)">
+          <i class='bx bx-copy'></i>
+          <span>Copy Email</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-  if (menuIcon && navList) {
-    menuIcon.addEventListener('click', function() {
-      this.classList.toggle('bx-x');
-      navList.classList.toggle('active');
-      document.body.classList.toggle('no-scroll');
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Fatma Kchaou. Designed with passion & code.</p>
+  </footer>
+
+  <script>
+    // Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('bx-menu');
+      icon.classList.toggle('bx-x');
     });
 
-    document.querySelectorAll('.navlist a').forEach(link => {
-      link.addEventListener('click', function() {
-        menuIcon.classList.remove('bx-x');
-        navList.classList.remove('active');
-        document.body.classList.remove('no-scroll');
+    // Theme Toggle (placeholder)
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const icon = themeToggle.querySelector('i');
+      icon.classList.toggle('bx-moon');
+      icon.classList.toggle('bx-sun');
+    });
+
+    // Close menu when clicking nav links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.querySelector('i').classList.remove('bx-x');
+        menuToggle.querySelector('i').classList.add('bx-menu');
       });
     });
-  }
-});
-      </script>
-      
+
+    // Copy email function
+    function copyEmail(email, button) {
+      navigator.clipboard.writeText(email).then(() => {
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<i class="bx bx-check"></i><span>Copied!</span>';
+        button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+        
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.style.background = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy email. Please copy manually: ' + email);
+      });
+    }
+  </script>
 </body>
+</html>
 </html>
