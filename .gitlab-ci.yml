@@ -1,0 +1,20 @@
+image: alpine:latest
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - echo "Déploiement du Portfolio"
+    - mkdir -p public
+    # Se déplacer dans le sous-dossier Portfolio
+    - cd Portfolio
+    - cp index.html ../public/
+    - cp -r Html ../public/
+    - cp -r img ../public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
